@@ -1,0 +1,18 @@
+{:paths     ["src" "resources"]
+ :mvn/repos {"central"     {:url "https://repo1.maven.org/maven2/"}
+             "clojars"     {:url "https://repo.clojars.org/"}}
+ :deps
+ {org.clojure/clojure        {:mvn/version "1.10.1"}
+  com.taoensso/timbre        {:mvn/version "4.10.0"}}
+ :aliases
+ {:main
+  {:main-opts []}
+  :test
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "0.0-554"}
+                 metosin/testit                {:mvn/version "0.4.0"}
+                 tortue/spy                    {:mvn/version "2.0.0"}}}
+  :runner
+  {:main-opts ["-m" "kaocha.runner"]}
+  :watcher
+  {:main-opts ["-m" "kaocha.runner" "--watch" "--fail-fast" "--no-randomize"]}}}
